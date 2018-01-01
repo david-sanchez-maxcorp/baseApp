@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    marginVertical: Platform.OS === 'ios' ? 25 : 10
+    marginVertical: Platform.OS === 'ios' ? 35 : 10
   },
   centered: {
     alignItems: 'center',
