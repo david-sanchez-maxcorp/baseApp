@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Platform } from 'react-native';
 import { Icon } from 'react-native-elements';
 import I18n from 'react-native-i18n';
 import {
@@ -41,43 +41,6 @@ const ProfileStackNavigator = StackNavigator(
   },
   {
     headerMode: 'screen'
-  }
-);
-
-const AuthTabNavigator = TabNavigator(
-  {
-    LoginScreen: {
-      screen: LoginScreen,
-      navigationOptions: {
-        tabBarLabel: 'Log In'
-      }
-    },
-    SignupScreen: {
-      screen: SignupScreen,
-      navigationOptions: {
-        tabBarLabel: 'Sign Up'
-      }
-    }
-  },
-  {
-    ...TabNavigator.Presets.AndroidTopTabs,
-    initialRouteName: 'LoginScreen',
-    lazy: false,
-    animationEnabled: true,
-    tabBarPosition: 'top',
-    tabBarOptions: {
-      indicatorStyle: {
-        borderBottomColor: '#03A9F4',
-        borderBottomWidth: 2
-      },
-      showLabel: true,
-      style: {
-        backgroundColor: 'white'
-      },
-      labelStyle: {
-        color: 'black'
-      }
-    }
   }
 );
 
@@ -140,21 +103,15 @@ const MainTabNavigator = TabNavigator(
 const PrimaryNav = StackNavigator(
   {
     LaunchScreen: {
-      screen: AuthTabNavigator,
-      navigationOptions: {
-        headerTitle: 'App Name'
-      }
+      screen: LaunchScreen
     },
     MainScreen: {
-      screen: MainTabNavigator,
-      navigationOptions: {
-        headerTitle: 'App Name'
-      }
+      screen: MainTabNavigator
     }
   },
   {
     // Default config for all screens
-    initialRouteName: 'MainScreen',
+    initialRouteName: 'LaunchScreen',
     headerMode: 'none',
     navigationOptions: {
       headerStyle: styles.header
